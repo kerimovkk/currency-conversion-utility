@@ -152,13 +152,4 @@ The application handles various error scenarios:
   - 401/403: Invalid or missing API key
   - 429: Rate limit exceeded (automatic retry with backoff)
   - 5xx: Server errors (automatic retry with backoff)
-- **Network errors**: Connection failures (automatic retry)
-- **Timeout**: Operations timeout after 30 seconds
-
-## API Rate Limiting
-
-The application implements exponential backoff retry strategy:
-- Maximum 4 attempts (1 original + 3 retries)
-- Delays: 1s, 2s, 4s (exponential with multiplier 2.0)
-- Only retries on: rate limits (429), server errors (5xx), network failures
 
